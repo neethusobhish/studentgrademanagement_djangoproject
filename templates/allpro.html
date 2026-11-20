@@ -1,0 +1,51 @@
+<h1>All Products</h1>
+
+<a href="{% url 'addproduct' %}">
+<button>Add product</button>
+</a>
+
+<table>
+  <tr>
+    <td>name</td>
+    <td>details</td>
+    <td>edit</td>
+    <td>delete</td>
+  </tr>
+  {%for i in pro%}
+  <tr>
+    <td>
+      <p>{{i.name}}</p>
+      <img src="{{i.pimage}}" alt="" height="100px" width="100px" />
+    </td>
+    <td><a href="{% url 'pro_details' i.id %}">view</a></td>
+    <td>edit</td>
+    <td>delete</td>
+  </tr>
+
+  {%endfor%}
+</table>
+
+<style>
+  table,
+  tr,
+  td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 10px;
+  }
+  td {
+    width: 20%;
+  }
+  table {
+    width: 100%;
+  }
+</style>
+
+<!-- {% for i in pro%}
+
+<a href="{% url 'pro_details' i.id %}">
+    <p>{{i.name}}</p>
+    <img src="{{i.pimage}}" alt="" height="100px" width="100px">
+</a>
+
+{%endfor%} -->

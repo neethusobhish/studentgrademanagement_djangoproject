@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+     <h1>This is my results page</h1>
+
+<!-- <p>{{results}}</p> -->
+
+ <a href="{% url 'addstudent' %}"><button>Add Student</button></a>
+
+<table>
+    <tr>
+        <td>Name</td>
+        <td>Details</td>
+        <td>Edit</td>
+        <td>Delete</td>
+    </tr>
+     {% for i in results %}
+    <tr>
+        
+         <td><a href="{% url 'student_info' i.id %}">
+         <p>{{i.first_name}}</p>
+         <img src="{{i.photo}}" alt="" width="100px",height="100px"> 
+         </a></td>
+         <td><a href="{% url 'student_info' i.id %} " >View</a></td>
+         <td><a href="{% url 'stu_result_edit' i.id %}">Edit</a></td>
+         <td><a href="{% url 'stu_result_delete' i.id%}">Delete</a></td>
+        
+    </tr>
+     {% endfor %}
+
+
+</table>
+
+<!-- {% for i in results %}
+
+<a href="{% url 'student_info' i.id %}">
+    <p>{{i.first_name}}</p>
+     <img src="{{i.photo}}" alt="" width="100px",height="100px"> 
+</a>
+{% endfor %} -->
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+

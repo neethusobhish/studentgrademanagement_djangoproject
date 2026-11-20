@@ -1,0 +1,10 @@
+<form method="POST">
+    {% csrf_token %}
+    <p>Are you sure you want to delete {{stu_result.first_name}}</p>
+    <input type="submit" value="Delete">
+    
+</form>
+
+<a href ="{%url 'all_student_results' %}">
+    <button>No</button>
+</a>
